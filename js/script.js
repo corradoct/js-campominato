@@ -16,9 +16,6 @@
 var bombe = document.getElementById('bombe');
 var numeriScelti = document.getElementById('numeriScelti');
 
-// Creo array dei 16 numeri bomba casuali da 1 a 100
-var arrayBombe = generaArray(1, 16);
-
 // Chiedo all'utente di scegliere la difficoltà del gioco
 var difficolta = parseInt(prompt('Scegli il livello di difficoltà : ( 0 => 16 bombe su 100 numeri, 1 => 16 bombe su 80 numeri, 2 => 16 bombe su 50 numeri )'));
 while (isNaN(difficolta) || difficolta >= 3) {
@@ -35,8 +32,11 @@ switch (difficolta) {
     difficoltaScelta = 100;
 }
 
+// Creo array dei 16 numeri bomba casuali da 1 a 100
+var arrayBombe = generaArray(1, 16);
+
 // Chiedo il numero all'utente e controllo se è presente o no tra le bombe
-var resultGame = userNumbers(difficoltaScelta)
+var resultGame = userNumbers(difficoltaScelta, arrayBombe)
 
 // Mostro il risultato all'utente e i numeri bomba
 if (resultGame) {
